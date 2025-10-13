@@ -1,0 +1,22 @@
+2025-10-12 20:22:21 | INFO | Starting Jellyfin AV1 Transcoding Watchdog
+2025-10-12 20:22:21 | INFO | All required CLI tools found: ffprobe, HandBrakeCLI, rsync
+2025-10-12 20:22:21 | INFO | Loaded 0 previously inspected files
+2025-10-12 20:22:21 | INFO | Queue length: 0
+2025-10-12 20:23:38 | INFO | Starting Jellyfin AV1 Transcoding Watchdog
+2025-10-12 20:23:38 | INFO | All required CLI tools found: ffprobe, HandBrakeCLI, rsync
+2025-10-12 20:23:38 | INFO | Loaded 0 previously inspected files
+2025-10-12 20:23:38 | INFO | Queue length: 0
+2025-10-12 20:24:57 | INFO | Starting Jellyfin AV1 Transcoding Watchdog
+2025-10-12 20:24:57 | INFO | All required CLI tools found: ffprobe, HandBrakeCLI, rsync
+2025-10-12 20:24:57 | INFO | Loaded 0 previously inspected files
+2025-10-12 20:24:57 | INFO | Scanning 1 directories: ['/Users/ofhd/jellyfin_test/movies']
+2025-10-12 20:24:57 | INFO | Running: ffprobe -v quiet -print_format json -show_format -show_streams /Users/ofhd/jellyfin_test/movies/h264_sample.mp4
+2025-10-12 20:24:57 | INFO | QUEUE: /Users/ofhd/jellyfin_test/movies/h264_sample.mp4 (reasons: codec is h264)
+2025-10-12 20:24:57 | INFO | Discovered 1 candidate files before filtering
+2025-10-12 20:24:57 | INFO | Queue length: 1
+2025-10-12 20:24:57 | INFO | Running: rsync -avh --progress /Users/ofhd/jellyfin_test/movies/h264_sample.mp4 /tmp/transcoding/h264_sample.mp4
+2025-10-12 20:24:57 | INFO | Running: HandBrakeCLI --preset-import-file /Users/ofhd/Developer/python_watchdog/transcode_watchdog/AV1_MKV_Stereo.json -i /tmp/transcoding/h264_sample.mp4 -o /tmp/transcoding/h264_sample.av1.mkv --preset AV1_MKV_Stereo
+2025-10-12 20:24:58 | INFO | Running: ffprobe -v error -hide_banner /tmp/transcoding/h264_sample.av1.mkv
+2025-10-12 20:24:58 | INFO | Running: ffprobe -v quiet -print_format json -show_format -show_streams /tmp/transcoding/h264_sample.mp4
+2025-10-12 20:24:58 | INFO | Running: ffprobe -v quiet -print_format json -show_format -show_streams /tmp/transcoding/h264_sample.av1.mkv
+2025-10-12 20:24:58 | INFO | Not space-efficient (new 46597 >= orig 38637); skipping replace
