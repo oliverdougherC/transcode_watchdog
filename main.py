@@ -209,11 +209,16 @@ def verify_transcode(logger: logging.Logger, original_path: str, new_path: str) 
     if abs(d1 - d2) > 1.0:
         logger.error(f"Duration mismatch: original={d1:.3f}s new={d2:.3f}s")
         return False
-    if (v1, a1, s1) != (v2, a2, s2):
+    # Enforce only video/audio stream count parity; subtitle differences are allowed
+    if (v1, a1) != (v2, a2):
         logger.error(
-            f"Stream count mismatch: orig(v{v1},a{a1},s{s1}) vs new(v{v2},a{a2},s{s2})"
+            f"Stream count mismatch (video/audio): orig(v{v1},a{a1}) vs new(v{v2},a{a2})"
         )
         return False
+    if s1 != s2:
+        logger.info(
+            f"Subtitle track count changed: orig s{s1} -> new s{s2} (allowed)"
+        )
     return True
 
 
